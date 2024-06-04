@@ -27,3 +27,10 @@ While performing (2), we can attach these nodes to an array, which will be the t
       Example problem:
       [2345. Finding the Number of Visible Mountains](https://leetcode.com/problems/finding-the-number-of-visible-mountains/description/)
 3. Condition A should be able to be stacked monotonically, such as if b > a, c > b, then c > a, the ">" condition can be stacked. If b doesn't contain a, c doesn't contain b, then c doesn't contain a, the "doesn't contain" condition can be stacked.
+
+## 3. Queue
+
+### Deque (double ended queue)
+
+[239. Sliding Window Maximum](https://leetcode.com/problems/sliding-window-maximum/)
+
