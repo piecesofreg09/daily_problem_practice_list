@@ -39,13 +39,14 @@ Clone neighbors of each node
 
 [239. Sliding Window Maximum](https://leetcode.com/problems/sliding-window-maximum/)
 
-
-## 4. Misc
-
-### Count number of ones: count by each digit
-[233. Number of Digit One](https://leetcode.com/problems/number-of-digit-one/description/)
 ## 4. Divide and conquer
 
 ### 
 
 [4. Median of Two Sorted Arrays](https://leetcode.com/problems/median-of-two-sorted-arrays/description/)
+
+
+## 5. Misc
+
+### Count number of ones: count by each digit
+[233. Number of Digit One](https://leetcode.com/problems/number-of-digit-one/description/)
