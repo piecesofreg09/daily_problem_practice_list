@@ -1,4 +1,4 @@
-# All problems divided to sub type
+# 
 
 ## 1. Graph Theory
 
@@ -40,6 +40,10 @@ Clone neighbors of each node
 [239. Sliding Window Maximum](https://leetcode.com/problems/sliding-window-maximum/)
 
 
+## 4. Misc
+
+### Count number of ones: count by each digit
+[233. Number of Digit One](https://leetcode.com/problems/number-of-digit-one/description/)
 ## 4. Divide and conquer
 
 ### 
