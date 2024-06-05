@@ -28,10 +28,34 @@ Clone neighbors of each node
 1. Define a condition A between two elements, monostack contains only elements that satisfy condition A in ascending order, say ```[...a, b, c...]```, in ascending order, element **b** satisfys condition A to element **a**. 
 2. Condition A can be
    1. A comparison: such as greater than: elements are all numbers, element **b** > element **a**, then in the monostack, b comes after a,
-   2. Or a boolean: such as element **b** doesn't contain element **a**, then in mono stack, b comes after a,
+
+      [907. Sum of Subarray Minimums](https://leetcode.com/problems/sum-of-subarray-minimums/description/)
+      <details>
+
+      <summary>Example explanation</summary>
+      
+      For array `[1,5,10,13,18,11,4,2]`. Now we want to find all elements that are bigger than an element at index i for all i, 
+      
+      Maintain an index stack whose corresponding elements are monotonically increasing.
+      Looking at the first element, mono stack is empty, so we push the index directly in `[0]`, representing elements `[1]`
+
+      for the first 5 elements `[1,5,10,13,18]`, we have current mono stack as `[0,1,2,3,4]`.
+   
+      
+      When we process the next new element at index 5 (value 11), if the new element is smaller than stack top, pop stack until stack top is smaller than the new element, in the example, we will pop out index 4 (value 18), then index 3 (value 13), and then the stack top index 2 (value 10) is smaller than 11, so the mono stack is now `[0,1,2]` (representing `[1,5,10]`), and the top of the stack (index 2 representing element 10) is the index of the first element that's (1) smaller than current element and (2) to the left the current element (which is 11, with index 5), so now we know, the amount of elements that are bigger than 7 to left is (5 - 2 - 1), (current_index - first_smaller_element_to_left_index - 1).
+      
+      </details>
+      
+      
+       
+      at this moment, we have found all elements that are bigger than the new element
+
+      Advanced: [2104. Sum of Subarray Ranges](https://leetcode.com/problems/sum-of-subarray-ranges/description/)
+      
+   3. Or a boolean: such as element **b** doesn't contain element **a**, then in mono stack, b comes after a,
    
       [2345. Finding the Number of Visible Mountains](https://leetcode.com/problems/finding-the-number-of-visible-mountains/description/)
-3. Condition A should be able to be stacked monotonically, such as if b > a, c > b, then c > a, the ">" condition can be stacked. If b doesn't contain a, c doesn't contain b, then c doesn't contain a, the "doesn't contain" condition can be stacked.
+4. Condition A should be able to be stacked monotonically, such as if b > a, c > b, then c > a, the ">" condition can be stacked. If b doesn't contain a, c doesn't contain b, then c doesn't contain a, the "doesn't contain" condition can be stacked.
 
 ## 3. Queue
 
