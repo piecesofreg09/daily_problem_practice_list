@@ -34,15 +34,24 @@ Clone neighbors of each node
 
       <summary>Example explanation</summary>
       
-      For array `[1,5,10,13,18,11,4,2]`. Now we want to find all elements that are bigger than an element at index i for all i, 
+      For array `[1,5,10,13,18,11,4,2]`.
       
-      Maintain an index stack whose corresponding elements are monotonically increasing.
-      Looking at the first element, mono stack is empty, so we push the index directly in `[0]`, representing elements `[1]`
+      1. Now we want to find all elements that are bigger than an element at index i for all i, store all these values to an array called `left`.
+      
+         Maintain an index stack whose corresponding elements are monotonically increasing.
+         
+         Looking at the first element, mono stack is empty, so we push the index directly in `[0]`, representing elements `[1]`, and first_smaller_element_to_left_index is -1, so that when we use the formula (current_index - first_smaller_element_to_left_index - 1), we get `(0 - (-1) -1) = 0`, meaning no elements are smaller to the left.
 
-      for the first 5 elements `[1,5,10,13,18]`, we have current mono stack as `[0,1,2,3,4]`.
+         Then we process the second element (index `1`, value `5`), value `5` is bigger than the element represented by stack top (index `0`, value `1`), so we store the current stack top to the `left` array, so for current element (index 1, value 5), first_smaller_element_to_left_index is 0, and the amount of elements that are bigger than 5 to left is (1 - 0 - 1), (current_index - first_smaller_element_to_left_index - 1). Now left is `[-1, 0]`
+
+         for the first 5 elements `[1,5,10,13,18]`, we have current mono stack as `[0,1,2,3,4]`, left as `[-1,0,1,2,3]`.
    
       
-      When we process the next new element at index 5 (value 11), if the new element is smaller than stack top, pop stack until stack top is smaller than the new element, in the example, we will pop out index 4 (value 18), then index 3 (value 13), and then the stack top index 2 (value 10) is smaller than 11, so the mono stack is now `[0,1,2]` (representing `[1,5,10]`), and the top of the stack (index 2 representing element 10) is the index of the first element that's (1) smaller than current element and (2) to the left the current element (which is 11, with index 5), so now we know, the amount of elements that are bigger than 7 to left is (5 - 2 - 1), (current_index - first_smaller_element_to_left_index - 1).
+         When we process the next new element at index 5 (value 11), if the new element is smaller than stack top, pop stack until stack top is smaller than the new element, in the example, we will pop out index 4 (value 18), then index 3 (value 13), and then the stack top index 2 (value 10) is smaller than 11, so the mono stack is now `[0,1,2]` (representing `[1,5,10]`), and the top of the stack (index 2 representing element 10) is the index of the first element that's (1) smaller than current element and (2) to the left the current element (which is 11, with index 5), so now we know, the amount of elements that are bigger than 7 to left is (5 - 2 - 1), (current_index - first_smaller_element_to_left_index - 1). We now have left as `[-1,0,1,2,3,2]`
+
+      3. We can do the same for elements to the right
+      
+      4. But we use >= on one side, > on the other side, to avoid duplication.
       
       </details>
       
