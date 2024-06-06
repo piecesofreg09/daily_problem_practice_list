@@ -14,6 +14,8 @@ While performing (2), we can attach these nodes to an array, which will be the t
 
 [210. Course Schedule II](https://leetcode.com/problems/course-schedule-ii/)
 
+[1857. Largest Color Value in a Directed Graph](https://leetcode.com/problems/largest-color-value-in-a-directed-graph/description/)
+
 ### Clone graph
 
 Clone neighbors of each node
