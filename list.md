@@ -67,6 +67,35 @@ Clone neighbors of each node
    
       [2345. Finding the Number of Visible Mountains](https://leetcode.com/problems/finding-the-number-of-visible-mountains/description/)
 4. Condition A should be able to be stacked monotonically, such as if b > a, c > b, then c > a, the ">" condition can be stacked. If b doesn't contain a, c doesn't contain b, then c doesn't contain a, the "doesn't contain" condition can be stacked.
+5. More generally, when we pop from monostack,
+   ```python
+   while stack and arr[stack[-1]] < arr[i]:
+      popped = stack.pop()
+      if stack:
+         left = stack[-1]
+         right = i
+      do something
+   stack.append[i]
+   ```
+   This means that `arr[i]` is the first element to the right that's bigger than element represented popped index, and the element represented by the next stack top (now it's also `stack[-1]`) is the first element to the left that's bigger than element represented popped index. As the code shown above, popped is the index of the element being popped, `left` is the first element to the left that's bigger, `right`  is the first element to the right that's bigger. If we want to find bigger/equal instead of bigger, we change the condition from `arr[stack[-1]] < arr[i]` to `arr[stack[-1]] <= arr[i]`.
+ 
+**Special problem for mono stack**
+
+[975. Odd Even Jump](https://leetcode.com/problems/odd-even-jump/description/)
+
+This problem used monostack to find the index of the next larger/smaller element, only this time we sort all `(value, index)` pair first
+
+<details>
+
+<summary>Example explanation</summary>
+
+For array `[10,13,12,14,15,12,13,14]`.
+
+For example, if we sort it increasingly by value, the sorted `(value, index)` pair is `[(10, 0), (12, 2), (12, 5), (13, 1), (13, 6), (14, 3), (14, 7), (15, 4)]`
+
+Then apply mono stack algo on the index, which is `[0, 2, 5, 1, 6, 3, 7, 4]`, once we found a index that's bigger than the stack top, it means this is the first element that's >= the element represented by stack top (because the array is already sorted). For example, for the second element in the `(value, index)` pair, `(12, 2)`, it's the third element in the original array, the next element that's >= than 12 is the 12 located at index 5. And if we apply monostack to the array `[0, 2, 5, 1, 6, 3, 7, 4]`, when we found 5 > 2, 5 is the first element that's bigger than 2, which meanings the element represented by index 5 is the ***first element*** that's ***>=*** the element represented by index 2, the ***>=*** is guaranteed because we sorted the `(value, index)` pair by `value`, the ***first element*** is guaranteed by monostack property.
+
+</details>
 
 ## 3. Queue
 
@@ -80,8 +109,18 @@ Clone neighbors of each node
 
 [4. Median of Two Sorted Arrays](https://leetcode.com/problems/median-of-two-sorted-arrays/description/)
 
+## 5. Union Find/Disjoint sets
 
-## 5. Misc
+It can find and update sets in `log(n)` time.
+
+[305. Number of Islands II](https://leetcode.com/problems/number-of-islands-ii/description/)
+[1101. The Earliest Moment When Everyone Become Friends](https://leetcode.com/problems/the-earliest-moment-when-everyone-become-friends/description/)
+
+## 6. Segment Tree
+
+## Range sum, min, max
+
+## 999. Misc
 
 ### Count number of ones: count by each digit
 [233. Number of Digit One](https://leetcode.com/problems/number-of-digit-one/description/)
