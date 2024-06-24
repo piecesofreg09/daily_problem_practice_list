@@ -23,6 +23,44 @@ Clone neighbors of each node
 [133. Clone Graph](https://leetcode.com/problems/clone-graph/)
 
 
+### Dijkstra's Algorithm
+
+Basically always find the node with the smallest distance to the initial node, iterate through neighbours of this node, update the stack/heap using the distance (defined as required in the problem)
+
+<details>
+    
+<summary>Sample Template</summary>
+    
+```python
+
+stack = [[0, 0, 0]]
+
+while stack:
+    # pop from the stack to get the node with the smallest distance
+    node = heappop(stack)
+    cur_dis, nx, ny = node
+
+    # iterate through neighbours
+    for dx, dy in dirrs:
+        x, y = nx + dx, ny + dy
+        if m>x>=0<=y<n:
+            # logic to update distance, it depends on the problem
+            dis = max(abs(heights[x][y] - heights[nx][ny]), cur_dis)
+            # if 'distance' is found to be smaller, push it back into the heap, using new 'distance' as key
+            if dis < diss[x][y]:
+                diss[x][y] = dis
+                heappush(stack, [diss[x][y], x, y])
+return diss[-1][-1]
+```
+</details>
+
+Example problems:
+
+[1631. Path With Minimum Effort](https://leetcode.com/problems/path-with-minimum-effort/description/)
+
+[778. Swim in Rising Water](https://leetcode.com/problems/swim-in-rising-water/description/)
+
+
 ## 2. Stack
 
 ### Mono Stack
