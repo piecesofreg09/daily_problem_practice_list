@@ -60,6 +60,10 @@ Example problems:
 
 [778. Swim in Rising Water](https://leetcode.com/problems/swim-in-rising-water/description/)
 
+**this problem is to find the largest distance, we just need to change min heap to a max heap**
+
+[1102. Path With Maximum Minimum Value](https://leetcode.com/problems/path-with-maximum-minimum-value/description/)
+
 
 ## 2. Stack
 
