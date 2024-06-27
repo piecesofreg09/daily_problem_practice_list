@@ -172,6 +172,44 @@ It can find and update sets in `log(n)` time.
 
 [206. Reverse Linked List](https://leetcode.com/problems/reverse-linked-list/description/)
 
+
+## 8. Tree
+
+## Lowest Common Ancenstor of n nodes
+[1676. Lowest Common Ancestor of a Binary Tree IV](https://leetcode.com/problems/lowest-common-ancestor-of-a-binary-tree-iv/)
+
+<details>
+
+<summary>Solution</summary>
+
+```python
+def lowestCommonAncestor(self, root: 'TreeNode', nodes: 'List[TreeNode]') -> 'TreeNode':
+    def tr(node, nodes, result):
+        li = 0
+        ri = 0
+        if node.left:
+            li = tr(node.left, nodes, result)
+        if node.right:
+            ri = tr(node.right, nodes, result)
+        
+        count = li + ri + (1 if node in nodes else 0)
+        if count == len(nodes):
+            if not result[0]:
+                result[0] = True
+                result[1] = node
+                return True
+        
+        return li + ri + (1 if node in nodes else 0)
+    
+    
+    result = [False, None]
+    tr(root, set(nodes), result)
+        
+    return result[1]
+```
+
+</details>
+
 ## 999. Misc
 
 ### Count number of ones: count by each digit
