@@ -164,6 +164,14 @@ It can find and update sets in `log(n)` time.
 
 ## Range sum, min, max
 
+## 7. Linked List
+
+## Reverse
+
+[92. Reverse Linked List II](https://leetcode.com/problems/reverse-linked-list-ii/description)
+
+[206. Reverse Linked List](https://leetcode.com/problems/reverse-linked-list/description/)
+
 ## 999. Misc
 
 ### Count number of ones: count by each digit
