@@ -214,3 +214,6 @@ def lowestCommonAncestor(self, root: 'TreeNode', nodes: 'List[TreeNode]') -> 'Tr
 
 ### Count number of ones: count by each digit
 [233. Number of Digit One](https://leetcode.com/problems/number-of-digit-one/description/)
+
+### Regex dp
+[10. Regular Expression Matching](https://leetcode.com/problems/regular-expression-matching/description/)
